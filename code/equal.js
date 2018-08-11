@@ -7,3 +7,5 @@ if (a === b){
     console.log("These values are not equal!");
 }
 
+
+console.log(a === b);
