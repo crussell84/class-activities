@@ -36,4 +36,7 @@ switch (op) {
     answer = (+answer - +subtract) / +multiplier;
     console.log(answer);
     break;
+    
+    default:
+    console.log("Invalid input, try again");
 }
