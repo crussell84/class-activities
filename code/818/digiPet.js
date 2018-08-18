@@ -46,10 +46,12 @@ function DigitalPal(name) {
     }
 }
 
-var dog = new DigitalPal("Spot");
-dog.outside = false;
-dog.bark = function () { cLog(`${this.says}Woof! Woof! woof!`); };
-dog.goOutside = function () {
+var animals = {};
+
+animals.dog = new DigitalPal("Spot");
+animals.dog.outside = false;
+animals.dog.bark = function () { cLog(`${this.says}Woof! Woof! woof!`); };
+animals.dog.goOutside = function () {
     if (this.outside) {
         cLog(`${this.says}We're already outside though...`);
     } else {
@@ -58,7 +60,7 @@ dog.goOutside = function () {
         this.bark();
     }
 };
-dog.goInside = function () {
+animals.dog.goInside = function () {
     if (this.outside) {
         cLog(`${this.says}Do we have to? fine...`);
         this.outside = false;
@@ -67,10 +69,10 @@ dog.goInside = function () {
     }
 };
 
-var cat = new DigitalPal("Fluffy");
-cat.houseCondition = 100;
-cat.meow = function () { cLog(`${this.says}Mew! Mew! Mew!`) };
-cat.destroyFurniture = function () {
+animals.cat = new DigitalPal("Fluffy");
+animals.cat.houseCondition = 100;
+animals.cat.meow = function () { cLog(`${this.says}Mew! Mew! Mew!`) };
+animals.cat.destroyFurniture = function () {
     if (this.houseCondition > 0) {
         this.houseCondition -= 10;
         cLog(`${this.says}MUAHAHAHAHA! TAKE THAT FURNITURE!`);
@@ -80,29 +82,11 @@ cat.destroyFurniture = function () {
         cLog(`${this.says}Aww, I broke it all already. Buy me more!`);
     }
 };
-cat.buyNewFurniture = function () {
+animals.cat.buyNewFurniture = function () {
     this.houseCondition += 50;
     cLog("Are you sure about that?");
 };
 
-cat.destroyFurniture();
-cat.meow();
-dog.goOutside();
-cat.play();
-cat.sleep();
-cat.play();
-cat.feed();
-cat.buyNewFurniture();
-cat.sleep();
-cat.play();
-cat.buyNewFurniture();
-cat.feed();
-cat.sleep();
-cat.destroyFurniture();
-cat.sleep();
-cat.play();
-cat.feed();
-dog.goInside();
-dog.play();
-dog.feed();
-dog.sleep();
+var animal = process.argv[2];
+var method = process.argv[3];
+animals[animal][method]();
