@@ -16,7 +16,6 @@ function handleRequest(req, res) {
   switch (path) {
     case "/" :
     file = "/index.html";
-    console.log(file);
     break;
 
     case "/favcss.html":
