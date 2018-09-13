@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "ice_cream",
+  "version": "1.0.0",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0"
+  }
+}
