@@ -20,7 +20,7 @@ module.exports = function (app) {
 
   // Add sequelize code to get a specific book and return it as JSON
   app.get("/api/:book", function (req, res) {
-    Book.findOne({ where: { title: req.body.bookSearched } }).then(data => {
+    Book.findOne({ where: { title: req.params.bookSearched } }).then(data => {
       res.json(data);
     })
 
@@ -28,14 +28,14 @@ module.exports = function (app) {
 
   // Add sequelize code to get all books of a specific genre and return them as JSON
   app.get("/api/genre/:genre", function (req, res) {
-    Book.findAll({ where: { genre: req.body.genreSearched } }).then(data => {
+    Book.findAll({ where: { genre: req.params.genreSearched } }).then(data => {
       res.json(data);
     })
   });
 
   // Add sequelize code to get all books from a specific author and return them as JSON
   app.get("/api/author/:author", function (req, res) {
-    Book.findAll({ where: { author: req.body.authorSearched } }).then(data => {
+    Book.findAll({ where: { author: req.params.authorSearched } }).then(data => {
       res.json(data);
     })
   });
